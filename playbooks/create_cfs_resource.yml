@@ -1,0 +1,19 @@
+---
+- hosts: mycluster
+  gather_facts: False
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: CFS Resource
+      veritas.infoscale.veritas_infoscale:
+        module: cfsresource
+        state: present
+        sgname: testsg1
+        dgname: testdg5
+        volname: testvol1
+        mnt: /testvol1
+        seednode: objstorer820-1-vm16
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"

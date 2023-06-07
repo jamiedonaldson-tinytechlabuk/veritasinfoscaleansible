@@ -1,0 +1,47 @@
+---
+- hosts: cluster-58-59
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: Configure CP Server
+    veritas.infoscale.veritas_infoscale:
+     module: CPServerConfig
+     cps_db_dir: /etc/VRTScps/db
+     cps_name: cps1
+     cps_network:
+      - vip: [ xx.xx.xx.xx ]
+        netmask: [ xx.xx.xx.xx ]
+        port: 443
+        systems:
+          - hosts: dl380g10-12-kvm-59 , dl380g10-12-kvm-58 
+            nic: eth2
+      - vip: [ xx.xx.xx.xx ]
+        netmask: [ xx.xx.xx.xx ]
+        port: 443
+        systems:
+          - hosts: dl380g10-12-kvm-59
+            nic: eth0
+          - hosts: dl380g10-12-kvm-58 
+            nic: eth1
+      - vip: [ xx.xx.xx.xx ]
+        netmask: [ xx.xx.xx.xx ]
+        port: 443
+        systems:
+          - hosts: dl380g10-12-kvm-59
+            nic: eth0
+          - hosts: dl380g10-12-kvm-58
+            nic: eth0
+     cps_diskgroup: fendg1
+     cps_volume: fenvol1
+     cps_newdg_disk:
+     cps_newvol_volsize:
+     cps_delete_database: 1
+     cps_delete_config_logs: 1
+     reconfig: 
+     state: present
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"
+

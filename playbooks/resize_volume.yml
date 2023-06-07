@@ -1,0 +1,21 @@
+---
+- hosts: mycluster
+  gather_facts: False
+  any_errors_fatal: true
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Resize volume
+      veritas.infoscale.veritas_infoscale:
+        module: resize_volume
+        size: '5084m'
+        operation: 'growto'
+        dgname: ''
+        volname: ''
+        mountpoint: '/mnt1'
+        state: present
+        seednode: <one of the nodes in the cluster>
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"

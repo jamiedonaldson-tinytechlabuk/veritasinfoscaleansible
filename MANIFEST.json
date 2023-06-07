@@ -1,0 +1,36 @@
+{
+  "collection_info": {
+    "authors": [
+      "Vineet Mishra <Vineet.Mishra@veritas.com>", 
+      "Gayatri Bhosale <Gayatri.Bhosale@veritas.com>", 
+      "Swarnika Maurya <Swarnika.Maurya@veritas.com>", 
+      "Manvi Pandya <Manvi.Pandya@veritas.com>"
+    ], 
+    "dependencies": {}, 
+    "description": "Veritas Infoscale Collection", 
+    "documentation": "https://sort.veritas.com/utility/ansible", 
+    "homepage": "https://sort.veritas.com/utility/ansible", 
+    "issues": null, 
+    "license": [
+      "GPL-2.0-or-later"
+    ], 
+    "license_file": null, 
+    "name": "infoscale", 
+    "namespace": "veritas", 
+    "readme": "README.md", 
+    "repository": null, 
+    "tags": [
+      "veritas", 
+      "infoscale"
+    ], 
+    "version": "2.11.0"
+  }, 
+  "file_manifest_file": {
+    "chksum_sha256": null, 
+    "chksum_type": "sha256", 
+    "format": 1, 
+    "ftype": "file", 
+    "name": "FILES.json"
+  }, 
+  "format": 1
+}

@@ -1,0 +1,17 @@
+---
+- hosts: mycluster
+  gather_facts: False
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Start Product
+      veritas.infoscale.veritas_infoscale:
+        module: process
+        component: sfcfsha
+        product: ENTERPRISE
+        product_version: 7.4.2
+        state: present
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"

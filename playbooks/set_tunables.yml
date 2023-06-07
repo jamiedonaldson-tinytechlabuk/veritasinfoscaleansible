@@ -1,0 +1,27 @@
+---
+- hosts: <ansible host group>
+  gather_facts: no
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: Set Tunables
+    veritas.infoscale.veritas_infoscale:
+     module: SetTunable
+     llt:
+     - systems: <system list or all>
+       tunables: <list of string of llt tunables and its value>
+     vm: 
+     - systems: <system list or all>
+       tunables: < dict of vm tunables with key as tunable name and its value>
+     fs: 
+     - systems: <system list or all>
+       tunables:
+       - <mount_point>: <dict of local mounts with key and value as dict for tunable name and its value>
+       - global: <dict of global fs tunables with key and value as dict for tunable name and its value>
+     facters     : "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"
+
+
+
+

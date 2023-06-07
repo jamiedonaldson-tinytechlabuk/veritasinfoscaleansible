@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  any_errors_fatal: true
+  roles:
+  - role: vvr_solution
+    execute: 1
+    vars_file: /root/.ansible/collections/ansible_collections/veritas/infoscale/roles/vvr_solution/vars/main.json
+    base_working_dir: /root/.ansible/collections/ansible_collections/veritas/infoscale/roles/vvr_solution/files
+    playbooks_dir:  /root/.ansible/collections/ansible_collections/veritas/infoscale/playbooks

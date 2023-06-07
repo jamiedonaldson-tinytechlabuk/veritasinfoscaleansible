@@ -1,0 +1,23 @@
+---
+- hosts: mycluster
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Install InfoScale
+      veritas.infoscale.veritas_infoscale:
+        module: yum
+        repository_name: <RepositoryName>
+        repository_baseurl: <RepositoryBaseURL>
+        gpgcheck: 1
+        gpgkey: http://xx.xxx.xxx.xx/rpms/RPM-GPG-KEY-veritas-infoscale7
+        product: ENTERPRISE
+        ignore_patchid_check: 1
+        patch_repo_list: # keep this as empty if check_must_have_path is set to 0 else patch_repo_list: ['patch_repo_list_location']
+        product_version: 7.4.2
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"
+        state: present

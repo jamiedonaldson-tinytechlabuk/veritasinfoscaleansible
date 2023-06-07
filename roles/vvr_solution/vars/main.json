@@ -1,0 +1,81 @@
+# This is sample for LLT using Ethernet and Shared Diskgroup
+{
+    "repository_name" : "repo_infoScale80",
+    "repository_baseurl" : "http://xx.xxx.xxx.xx/Infoscale/8.0/rhel8_x86_64/rpms",
+    "clusters" : {
+        "cluster1"      : {
+            "cluster_nodes"  : ["objstorer820-1-vm17.veritas.com", "objstorer820-1-vm18.veritas.com"],
+            "public_link"  : "eth0",
+            "private_links"  : "eth1, eth2",
+            "product_version" : "8.0",
+            "udp_link" : "",
+            "product_component" : "SFCFSHA",
+            "site_gco_ip" : "xx.xx.xx.xx",
+            "site_gco_netmask" : "255.255.240.0",
+            "cluster_gateway" : "xx.xx.xx.xx"
+        },
+        "cluster2"      : {
+            "cluster_nodes"  : ["objstorer820-1-vm19.veritas.com", "objstorer820-1-vm20.veritas.com"],
+            "public_link"  : "eth0",
+            "private_links"  : "eth1, eth2",
+            "udp_link" : "",
+            "product_version" : "8.0",
+            "product_component" : "SFCFSHA",
+            "site_gco_ip" : "xx.xx.xx.xx",
+            "site_gco_netmask" : "255.255.240.0",
+            "cluster_gateway" : "xx.xx.xx.xx"
+        }
+    },
+    "diskgroup" : {
+        "dg1"   : {
+            "clusters_list" : ["cluster1", "cluster2"],
+            "storage_type"  : "shared",
+            "diskgroup_type"  : "shared",
+            "rvg_details" : {
+                "rvg1" : {
+                    "volume_size"   : ["5G","10G"],
+                    "volume_layout"    : ["stripe","concat"],
+                    "volume_mount_point" : ["/mount_path1","/mount_path2"],
+                    "srl_size"   : ["3G","concat"],
+                    "nic_name"       : ["eth0","eth0"],
+                    "rvg_ips"    : ["xx.xx.xx.xx","xx.xx.xx.xx"],
+                    "rvg_ips_netmask"   : ["255.255.240.0","255.255.240.0"]
+                },
+                "rvg2" : {
+                    "volume_size"   : ["10G"],
+                    "volume_layout"    : ["concat"],
+                    "volume_mount_point" : ["/mount_path3"],
+                    "srl_size"   : ["4G","concat"],
+                    "nic_name"       : ["eth0","eth0"],
+                    "rvg_ips"    : ["xx.xx.xx.xx","xx.xx.xx.xx"],
+                    "rvg_ips_netmask"   : ["255.255.240.0","255.255.240.0"]
+                }
+            }
+        },
+        "dg2"   : {
+            "clusters_list" : ["cluster1", "cluster2"],
+            "storage_type"  : "shared",
+            "diskgroup_type"  : "shared",
+            "rvg_details" : {
+                "rvg1" : {
+                    "volume_size"   : ["5G","10G"],
+                    "volume_layout"    : ["stripe ncols=2","concat"],
+                    "volume_mount_point" : ["/mount_path1","/mount_path2"],
+                    "srl_size"   : ["3G","concat"],
+                    "nic_name"       : ["eth0","eth0"],
+                    "rvg_ips"    : ["xx.xx.xx.xx","xx.xx.xx.xx"],
+                    "rvg_ips_netmask"   : ["255.255.240.0","255.255.240.0"]
+                },
+                "rvg2" : {
+                    "volume_size"   : ["10G"],
+                    "volume_layout"    : ["concat"],
+                    "volume_mount_point" : ["/mount_path3"],
+                    "srl_size"   : ["4G","concat"],
+                    "nic_name"       : ["eth0","eth0"],
+                    "rvg_ips"    : ["xx.xx.xx.xx","xx.xx.xx.xx"],
+                    "rvg_ips_netmask"   : ["255.255.240.0","255.255.240.0"]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+---
+- hosts: <ansible host group>
+  gather_facts: False
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: GCO configuration
+    veritas.infoscale.veritas_infoscale:
+     module: gco_config
+     primary:
+      prefix: ''
+      nic: {'<primary site hostname>' : 'ens192'}
+      vip: xx.xxx.xxx.xx
+      ipver: 4
+      netmask: xx.xxx.xxx.xx
+      iptype: null
+      secretkey: null
+     secondary:
+      prefix: ''
+      nic: {'<secondary site hostname>' : 'ens192'}
+      vip: xx.xxx.xxx.xx
+      ipver: 4
+      netmask: xx.xxx.xxx.xx
+      iptype: null
+      secretkey: null
+     primary_seednode: <primary site hostname>
+     secondary_seednode: <secondary site hostname>
+     subscriptionid: null
+     clientid: null
+     tenantid: null
+     state: present
+     extra_args: null
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

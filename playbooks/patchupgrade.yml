@@ -1,0 +1,16 @@
+---
+- hosts: <ansible host group>
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: Patch Upgrade
+    veritas.infoscale.veritas_infoscale:
+     module: patchupgrade
+     ignore_patchid_check: 0
+     patch_repo_list: ["file:///mnt/linux/7.4.2/patch_central/P/infoscale/rhel7_x86_64/7.4.2.1200/rpms/"]
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"
+     state: present

@@ -1,0 +1,22 @@
+---
+- hosts: <ansible host group>
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name:  Configure Routes and Rules
+    veritas.infoscale.veritas_infoscale:
+     module: RouteConfig
+     udp_link:
+      - system: <system name>
+        heartbeat_link:
+         - nic: eth1
+           ip: xx.xx.xx.xx/20
+      - system: <system name>
+        heartbeat_link:
+         - nic: eth1
+           ip: xx.xx.xx.xx/20
+     facters: "{{ groups['all'] |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

@@ -1,0 +1,17 @@
+---
+- hosts: cluster_rvm
+  gather_facts: False
+  any_errors_fatal: true
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Fencing configuration
+      veritas.infoscale.veritas_infoscale:
+        module: vxfen
+        vxfenmode: majority
+        seednode: <one of the cluster hosts>
+        state: present
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"

@@ -1,0 +1,9 @@
+---
+# tasks file for vvr_solution
+  - name: Generate Workflow
+    veritas.infoscale.veritas_infoscale:
+     module: GenerateWorkflow
+     execute: "{{ execute | default(1) }}"
+     vars_file: "{{ vars_file }}"
+     base_working_dir: "{{ base_working_dir }}"
+     playbooks_dir: "{{ playbooks_dir }}"

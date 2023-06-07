@@ -1,0 +1,16 @@
+---
+- hosts: mycluster
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: Remove disks from Diskgroup
+    veritas.infoscale.veritas_infoscale:
+     module: adddisks
+     state: absent
+     dgname: testdg
+     disks: [ 'disk1', 'disk2' ]
+     facters: "{{ ansible_play_hosts_all | map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

@@ -1,0 +1,12 @@
+You can also include it in a requirements.yml file and install it with ansible-galaxy collection install -r requirements.yml, using the format:
+
+---
+collections:
+  - name: veritas.infoscale
+
+A specific version of the collection can be installed by using the version keyword in the requirements.yml file:
+
+---
+collections:
+  - name: veritas.infoscale
+    version: 2.4.0

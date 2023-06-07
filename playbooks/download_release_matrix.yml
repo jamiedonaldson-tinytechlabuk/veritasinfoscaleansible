@@ -1,0 +1,9 @@
+---
+- hosts: <ansible host group>
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Download Release matrix from SORT
+    veritas.infoscale.veritas_infoscale:
+     module: download_release_matrix
+     local_directory_path: <Absolute System path>

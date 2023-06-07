@@ -1,0 +1,74 @@
+---
+- hosts: <ansible host group>
+  gather_facts: False
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: VVR/CVR Resource
+    veritas.infoscale.veritas_infoscale:
+     module: vvrresource
+     aws: null
+     seednode: <hostname>
+     primaryvip: xx.xx.xx.xx
+     secondaryvip: xx.xx.xx.xx
+     dgname: testdg2
+     datavolname: testvol1
+     srlvolname: srlvol1
+     rvgname: rvg_vvrtest1
+     createsecondaryonly: 1
+     createprimaryonly: 0
+     start_replication: 0
+     agentinfo:
+        primary:
+            clusterlist:
+                - Cluster1
+                - Cluster2
+            networkhosts:
+                - xx.xx.xx.xx
+            nic: eth0
+            netmask: 255.255.252.0
+            mountpoint_info:
+                - volname: testvol1
+                  mountname: /mnt_test/primary
+                  mount_res_name: custom_mount_new
+                  requires_res: ['']
+            secretkey : null
+        secondary:
+            nic: ens256
+            netmask: 255.255.252.0
+            mountpoint_info:
+                - volname: testvol1
+                  mountname: /mnt_test/secondary
+                  mount_res_name: custom_mount_new
+                  requires_res: ['']
+            clusterlist:
+                - Cluster1
+                - Cluster2
+            networkhosts:
+                - xx.xx.xx.xx
+            secretkey : null
+        rvg_sg_name : custom_RVG
+        rvg_res_name : null
+        mount_sg_name : null
+        datadg_res_name : null
+        ip_res_name : null
+        nic_res_name : null
+        awsip_res_name : null
+        azureip_res_name : null
+        azureauth_res_name : null
+        rvgprimary_res_name : null
+        vvrshare_res_name : null
+        logownergrp_sg_name : null
+        logownerip_res_name : null
+        logowner_res_name : null
+        awsip_logowner_res_name : null
+        azureip_logowner_res_name : null
+        azureauth_logowner_res_name : null
+        subscriptionid : null
+        clientid : null
+        tenantid : null
+        logownernic_res_name : null
+     state: present
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

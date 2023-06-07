@@ -1,0 +1,20 @@
+---
+- hosts: cluster_kvm_58_59_60_RHEL6.7
+  gather_facts: False
+  any_errors_fatal: true
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Fencing configuration
+      veritas.infoscale.veritas_infoscale:
+        module: vxfen
+        vxfenmode: disks
+        disks: ['3pardata0_1319', '3pardata0_1320', '3pardata0_1321']
+        vxfendg: testdg2
+        cpagent: 1
+        seednode: <one of the cluster hosts>
+        state: present
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars,\
+        ['facts','infoscale_facts'])| select()|list }}"

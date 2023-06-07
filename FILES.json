@@ -1,0 +1,481 @@
+{
+  "files": [
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "."
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "docs"
+    }, 
+    {
+      "chksum_sha256": "1a49ca52d893aab5b0a317f6c6835aea9bc0f71614ba78eb1e88d18394dec287", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "docs/veritas.infoscale.veritas_infoscale"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "plugins"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "plugins/modules"
+    }, 
+    {
+      "chksum_sha256": "935dea1fe411e9638483b3118e0436f965932391a81f01e8820e0947f4c336f0", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "plugins/modules/veritas_infoscale.py"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": ".ansible-test"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution"
+    }, 
+    {
+      "chksum_sha256": "43e63a93716f15cdb102c201e4631be604b45910b8c749c78d89e3fc076c7c7e", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/.travis.yml"
+    }, 
+    {
+      "chksum_sha256": "cc751d75266f757a38189f15d54e548dc87706f14a39756995c27b49eaca8a07", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/README.md"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/defaults"
+    }, 
+    {
+      "chksum_sha256": "b814d40ac96555d7ddf005a5bbf94f8c6b1e1cfbe0e23f3056e80f4b5fbd4909", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/defaults/main.yml"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/files"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/handlers"
+    }, 
+    {
+      "chksum_sha256": "43f9023aa3b3f81dcf4633063e4d8ae30a273def1debeacb1312583109ce7705", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/handlers/main.yml"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/meta"
+    }, 
+    {
+      "chksum_sha256": "8a7404038df7187e1a9054e0715a18df8c48fa092bf83443ddea0e97fcf893af", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/meta/main.yml"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/tasks"
+    }, 
+    {
+      "chksum_sha256": "034453aaad66ecadacd3da078cc0fbd0ff18aa2f64d16dd8390f1ee7194eedb7", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/tasks/main.yml"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/templates"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/tests"
+    }, 
+    {
+      "chksum_sha256": "e02233819b1a09844410549191813f7cc7ba360f21298578f4ba1727a27d87fc", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/tests/inventory"
+    }, 
+    {
+      "chksum_sha256": "a20c4b5d6622c514630bf793b7434e79b6fe96b412b93a7590897b64e548d38c", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/tests/test.yml"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "roles/vvr_solution/vars"
+    }, 
+    {
+      "chksum_sha256": "de260f7858134ecc70d77a6da91c1c6cd1dd535ce6942da48116f990dd1d671f", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/vars/main.json"
+    }, 
+    {
+      "chksum_sha256": "0a29f25e9356c471ef6815991f589842ae1d1bfffacbad2c0f7b647f3adf7d7a", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "roles/vvr_solution/vars/main_udp_fss.json"
+    }, 
+    {
+      "chksum_sha256": "b30cea58f6b6fd7a28036da58d59d40c4aacfecfe32b9703021ed0631523f371", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "MANIFEST.json"
+    }, 
+    {
+      "chksum_sha256": "83d500badcd8bddcfffe3cfe5dda7f2f977ace98d95c7ce1ca461040150cff09", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "README.md"
+    }, 
+    {
+      "chksum_sha256": null, 
+      "chksum_type": null, 
+      "format": 1, 
+      "ftype": "dir", 
+      "name": "playbooks"
+    }, 
+    {
+      "chksum_sha256": "47c337246b1b05baca40f5b9603421fb2f21a78fc7d95d3da51ec34709c59d81", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/add_del_node.yml"
+    }, 
+    {
+      "chksum_sha256": "a855bb920a99838802f07908ebd96daf368b9bb8ad031dcea273ea0590ae666e", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/add_disks.yml"
+    }, 
+    {
+      "chksum_sha256": "8b9dab9020d8c0e592a37ccaecacbf47c35030034120ae71e494d85ebc1b1dd9", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/configure_sf.yml"
+    }, 
+    {
+      "chksum_sha256": "51bb8c0cc72b3b3df801b92932360a133ce88d369725ade84625b22bd624307a", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/configure_sfcfs.yml"
+    }, 
+    {
+      "chksum_sha256": "a026835e9b9ae1d81a06cedb3bad341c974627f1b1b2bfb57208210a88e36201", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/configure_sfcfsha.yml"
+    }, 
+    {
+      "chksum_sha256": "beeeb8fd88f2d616836b24167bc345b91fd9d471c7d3e4703fcf63a94232a1de", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/configure_sfha.yml"
+    }, 
+    {
+      "chksum_sha256": "8792380d3a1feb0ef4ec240883a9f2e0c65510e665a071b57e773c5fcaf80198", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/configure_vcs.yml"
+    }, 
+    {
+      "chksum_sha256": "e3413416b4f0dec20ee62f449a9e17fbeaf557fabf3f9bf876d1600201fc498c", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/cp_server_config.yml"
+    }, 
+    {
+      "chksum_sha256": "642167fc6fb9070015818b1f5157cedf12c14c1728944811565e8fc38347578e", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/create_cfs_resource.yml"
+    }, 
+    {
+      "chksum_sha256": "f5c52b31d898b1f0d09d497dbf8428f396d96cbb1b45bf3825c65659d2ecd23b", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/create_dg_vol.yml"
+    }, 
+    {
+      "chksum_sha256": "224327a65d555fac0d39b256b8d9826f83d634641eb1de64307ca95b27700dad", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/create_fsresource.yml"
+    }, 
+    {
+      "chksum_sha256": "e3a824b242a488879aba077d07de7dff8b5105405dba2d01fb952646bba7b7ad", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/create_objects.yml"
+    }, 
+    {
+      "chksum_sha256": "4db86c1113ca7a377524b64ee59087de5863c3ac8da3a6470eda1b88f00edfe4", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/download_release_matrix.yml"
+    }, 
+    {
+      "chksum_sha256": "10cf6fb678550980b823e8d17e329717c74134f76047a29c7edce198a136eee4", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/eo_logging.yml"
+    }, 
+    {
+      "chksum_sha256": "bb6a7b48777fd33bd0b2bc1397f9e0d41c706d31fd5ecdcf29fcf0a143206cc4", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/fencing-cps.yml"
+    }, 
+    {
+      "chksum_sha256": "28c15d8173bb12518322e00fd354611aa12666cd2c1dc1c7f4548a4349504532", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/fencing-disabled.yml"
+    }, 
+    {
+      "chksum_sha256": "ef869a81ec82088c55fca8f58d7c76affbf9d2797e81387b04d4b982f3c1f7a1", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/fencing-disks.yml"
+    }, 
+    {
+      "chksum_sha256": "d158a22304b5183b1a7e30daf1279085370eaa7c657f01ba52f9d410f1cb9da3", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/fencing-majority.yml"
+    }, 
+    {
+      "chksum_sha256": "efb90f5074ad34b59de3a3ca4fbbda8d1fe3e8380486e8e573875d18deef65bf", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/full_upgrade.yml"
+    }, 
+    {
+      "chksum_sha256": "7796a8bc6646fdfb352a73f59762e038052b40d087f4a6d8d57f88a99d7b896a", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/gco_config.yml"
+    }, 
+    {
+      "chksum_sha256": "09a7bd28b9d3ab7c31f56bd75e53ac152e44e6030d4d7a97c637514cb311e5ff", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/infoscale_workflow.yml"
+    }, 
+    {
+      "chksum_sha256": "a7c961de06715a4d1cdc056ccaddc3fafe18fdd9fd1cc0b57c871743ae3fd8fd", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/install.yml"
+    }, 
+    {
+      "chksum_sha256": "8b61137f6753a8e298a8ef14d1a8b1c36bed2d30768837f8bd813c5ac360f20d", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/license.yml"
+    }, 
+    {
+      "chksum_sha256": "a6249d867f4d3a5a503f583a6832825beeccab3ea4a8f2bee6803cee4d6d2eea", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/patchupgrade.yml"
+    }, 
+    {
+      "chksum_sha256": "bce4c8c1bc407e0c8c6f1e860a4f5bb84ff861494dae6798b6cf30a544e93c42", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/resize_volume.yml"
+    }, 
+    {
+      "chksum_sha256": "2539789d6d0385569308a1ebf2101628cf53fc20fd45463f83f7a971d1a1b153", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/rest_server_config.yml"
+    }, 
+    {
+      "chksum_sha256": "d35757d35c45a545f24fc0716cda7c9f4f7aff5f90f6fa67f252178f5d625801", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/rm_disks.yml"
+    }, 
+    {
+      "chksum_sha256": "434984b156237c043d005d115ff0a39f13c555354c62ad40bf52ddb52c295ed8", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/rolling_upgrade.yml"
+    }, 
+    {
+      "chksum_sha256": "26ab66d85487192cb5525fe71d32a99029daad52aa4f5095939b38544418c30e", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/route_config.yml"
+    }, 
+    {
+      "chksum_sha256": "07b07c3cf9eb4660b3bc34f95c447229f7259cf01068c8d3288b30fa14c94dc0", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/secure_cluster.yml"
+    }, 
+    {
+      "chksum_sha256": "6fa64a353e95b152c8742e0987098d84a50c39872d0edd5f62cef52c21a7adef", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/set_tunables.yml"
+    }, 
+    {
+      "chksum_sha256": "f40808f3ba29036e18260e647257c29083eeb595be8e81d98cf800c6b352d01f", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/start_services.yml"
+    }, 
+    {
+      "chksum_sha256": "f1535673d714cbf81723113fcda0e63957547ce35ea08adef71632b1d1106540", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/stop_services.yml"
+    }, 
+    {
+      "chksum_sha256": "1713bdc2683b044603f92c7d9c6b11fdf55eeb2f5ccc5ea97168d01fd0eeb136", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/uninstall.yml"
+    }, 
+    {
+      "chksum_sha256": "97e2c4186f7ec076f4849262e51f858bda00330385c05f4e1a84a4d2cfe860bd", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/vip_config.yml"
+    }, 
+    {
+      "chksum_sha256": "4d41abb5dbff2521d730fa54763942649dc2032155f13e02a8340901914c57de", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/vvrresource.yml"
+    }, 
+    {
+      "chksum_sha256": "7bdffedc87808e4dc8c6d75865fb5df98ddaf72cd4ee10614be2711afb7df5d2", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "playbooks/change_replication_state.yml"
+    }, 
+    {
+      "chksum_sha256": "33f999c929891cf35465dbbf5c5855426e8df7494e9a0c200dccc605ec91ae21", 
+      "chksum_type": "sha256", 
+      "format": 1, 
+      "ftype": "file", 
+      "name": "CHANGELOG.md"
+    }
+  ], 
+  "format": 1
+}

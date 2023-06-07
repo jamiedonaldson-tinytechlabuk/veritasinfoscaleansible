@@ -1,0 +1,50 @@
+---
+- hosts: mycluster
+  gather_facts: False
+  any_errors_fatal: true
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+
+- hosts: mycluster
+  gather_facts: False
+  any_errors_fatal: true
+  serial: 1
+  tasks:
+    - name: Rolling Upgrade(phase1) Infoscale
+      veritas.infoscale.veritas_infoscale:
+        module: ru_phase1
+        repository_name: <RepositoryName>
+        product_version: 7.4.2
+        repository_baseurl: <RepositoryBaseURL>
+        gpgcheck: 1
+        gpgkey: http://xx.xxx.xxx.xx/rpms/RPM-GPG-KEY-veritas-infoscale7
+        license: ENTERPRISE <or license key path>
+        edgeserver_hostname: telemetry.veritas.com
+        edgeserver_port: 443
+        seednode: objstorer820-1-vm16
+        state: present
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"
+
+- hosts: mycluster
+  gather_facts: False
+  any_errors_fatal: true
+  tasks:
+    - name: Rolling Upgrade(phase2) Infoscale
+      veritas.infoscale.veritas_infoscale:
+        module: ru_phase2
+        repository_name: <RepositoryName>
+        product_version: 7.4.2
+        repository_baseurl: <RepositoryBaseURL>
+        gpgcheck: 1
+        gpgkey: http://xx.xxx.xxx.xx/rpms/RPM-GPG-KEY-veritas-infoscale7
+        license: ENTERPRISE <or license key path>
+        edgeserver_hostname: telemetry.veritas.com
+        edgeserver_port: 443
+        seednode: objstorer820-1-vm16
+        state: present
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"

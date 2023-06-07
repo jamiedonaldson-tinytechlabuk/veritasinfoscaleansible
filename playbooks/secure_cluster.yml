@@ -1,0 +1,19 @@
+---
+- hosts: <ansible host group>
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name:  Secure Cluster
+    veritas.infoscale.veritas_infoscale:
+     module: SecureCluster
+     state: present
+     reconfig: 0
+     seednode: objstorer820-1-vm16
+     fips: 1
+     read_access: 0
+     usergroups: [ 'root' , 'user1' ]
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

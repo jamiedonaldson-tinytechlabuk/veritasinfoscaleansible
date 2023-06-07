@@ -1,0 +1,17 @@
+---
+- hosts: <ansible host group>
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+     release_matrix_path: <URL>
+    register: facts
+  - name:  Configure VIP
+    veritas.infoscale.veritas_infoscale:
+     module: VipConfig
+     nic: ens3
+     vip: 'xx.xx.xx.xx'
+     netmask: 'xx.xx.xx.xx'
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

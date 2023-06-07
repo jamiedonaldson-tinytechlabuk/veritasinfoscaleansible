@@ -1,0 +1,24 @@
+---
+- hosts: mycluster
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Init disks
+    veritas.infoscale.veritas_infoscale:
+     module: DiskInit
+     init:
+      initdisks: True
+      fss: True
+     disks: [ 'disk1', 'disk2' ]
+    register: disk_info
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: Add disks from Diskgroup
+    veritas.infoscale.veritas_infoscale:
+     module: adddisks
+     state: present
+     dgname: testdg
+     disks: "{{disk_info['disks']  }}"
+     facters: "{{ ansible_play_hosts_all | map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

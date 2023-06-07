@@ -1,0 +1,18 @@
+---
+- hosts: mycluster
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Uninstall InfoScale
+      veritas.infoscale.veritas_infoscale:
+        module: yum
+        product: ENTERPRISE
+        product_version: 7.4.2
+        seednode: <hostname>
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"
+        state: absent

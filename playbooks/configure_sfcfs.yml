@@ -1,0 +1,27 @@
+---
+- hosts: mycluster
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name:  Configure SFCFS
+    veritas.infoscale.veritas_infoscale:
+     module: sfcfs_config
+     cluster_name: clust_cpi9
+     cluster_uuid: ''
+     product_version: '7.4.2'
+     method: ethernet
+     seednode: objstorer820-1-vm16
+     license: STORAGE
+     state: present
+     private_link: eth1,eth2
+     udp_link: null
+     low_priority_link: eth0
+     tcp_link: null
+     enable_lgf: 1
+     eo_compliant_logging: off
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+     ['facts','infoscale_facts'])| select()|list }}"

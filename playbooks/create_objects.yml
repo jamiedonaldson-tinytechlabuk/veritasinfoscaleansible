@@ -1,0 +1,34 @@
+---
+- hosts: mycluster
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: Init disks
+    veritas.infoscale.veritas_infoscale:
+     module: DiskInit
+     init:
+      initdisks: True
+      fss: True
+
+  - name: Scan disks
+    veritas.infoscale.veritas_infoscale:
+     module: DiskInit
+     init:
+      initdisks: False
+      fss: True
+ 
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+
+  - name: Create DG, Volume, FS
+    veritas.infoscale.veritas_infoscale:
+     module: SharedDgvolfs
+     state: present
+     dg1:
+      dgname: testdg6
+      dgtype: fss
+      disks: []
+      volinfo: [[testvol4,3g,layout=concat-mirror nmirror=3],[testvol5,2g,layout=stripe nmirror=2 ncols=2]]
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

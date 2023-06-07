@@ -1,0 +1,27 @@
+---
+- hosts: <any one node in cluster on which REST server is to be configured>
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+  - name: Facters
+    veritas.infoscale.veritas_infoscale:
+     module: site_facters
+    register: facts
+  - name: Configure REST Server
+    veritas.infoscale.veritas_infoscale:
+     module: RestServerConfig
+     REST_server_ip: xx.xx.xx.xx
+     REST_server_netmask: xx.xx.xx.xx
+     REST_server_nic: eth0
+     REST_server_port: '5637'
+     REST_server_ldap_domain: "example.com"
+     REST_server_ldap_ip: xx.xx.xx.xx
+     REST_server_username: ldapuser1
+     REST_server_key: '/certs/server.key'
+     REST_server_cert_file: '/certs/server.crt'
+     REST_server_cacert_file: '/certs/serverca.crt'
+     REST_server_passphrase:
+     rest_config: enabled_tpcacert_ldap
+     reconfig:
+     state: present
+     facters: "{{ ansible_play_hosts_all |map('extract', hostvars, ['facts','infoscale_facts'])| select()|list }}"

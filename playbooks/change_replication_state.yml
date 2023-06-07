@@ -1,0 +1,11 @@
+---
+- hosts: <ansible host group>
+  gather_facts: False
+  become: yes
+  tasks:
+  - name: Change replcation state
+    veritas.infoscale.veritas_infoscale:
+     module: ChangeReplicationState
+     newstate: "{{ vtas_newstate }}"
+     rvg_info: "{{ vtas_rvginfo }}"
+     secondaryvip: "{{ vtas_secondaryvip }}"

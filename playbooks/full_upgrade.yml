@@ -1,0 +1,26 @@
+---
+- hosts: mycluster
+  gather_facts: False
+  any_errors_fatal: true
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Full Upgrade
+      veritas.infoscale.veritas_infoscale:
+        module: upgrade
+        repository_name: <RepositoryName>
+        product_version: 7.4.2
+        repository_baseurl: <RepositoryBaseURL>
+        gpgcheck: 1
+        gpgkey: |
+          http://xx.xxx.xxx.xx/sde2/7.4.2/dvd1-redhatlinux/rhel7_x86_64/rpms/RPM-GPG-KEY-veritas-infoscale7
+        license: ENTERPRISE  # <or license key path i.e. \
+        # /license_key/Unix/perpetual/xxxxxxxxxxxx.slf>"
+        seednode: dl380g10-09-vm7
+        edgeserver_hostname: telemetry.veritas.com
+        edgeserver_port: 443
+        state: present
+        facters: "{{ ansible_play_hosts_all |map('extract',hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"

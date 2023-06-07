@@ -1,0 +1,18 @@
+---
+- hosts: <ansible host group>
+  gather_facts: False
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Add/Del nodes
+      veritas.infoscale.veritas_infoscale:
+        module: add_node
+        cluster_node: <One of the nodes of running cluster>
+        add_del_nodes: ['host1', 'host2', ...]
+        cluster_id: <cluster id of the running cluster>
+        cluster_uuid: <cluster uuid of the running cluster>
+        state: present
+        facters: "{{ ansible_play_hosts_all | map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"

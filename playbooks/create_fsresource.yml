@@ -1,0 +1,23 @@
+---
+- hosts: mycluster
+  gather_facts: no
+  tasks:
+    - name: Facters
+      veritas.infoscale.veritas_infoscale:
+        module: site_facters
+      register: facts
+    - name: Create FS resource
+      veritas.infoscale.veritas_infoscale:
+        module: fsresource
+        state: present
+        sgname: testdgsg5
+        dgname: testdg5
+        volname: testvol5
+        mnt: /testvol5
+        dgresname: dgres5
+        volresname: volres5
+        mntresname: mntres5
+        sgtype: Parallel
+        systems: [pun685cg7labs4-vm11, pun685cg7labs4-vm12]
+        facters: "{{ ansible_play_hosts_all |map('extract', hostvars, \
+        ['facts','infoscale_facts'])| select()|list }}"
